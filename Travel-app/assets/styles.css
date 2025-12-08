@@ -1,0 +1,94 @@
+:root{
+  --bg: #f5f7fb;
+  --accent: #0b74ff;
+  --accent-2: #ff7a00;
+  --muted: #6b7280;
+  --white: #ffffff;
+  --card: #ffffff;
+  --shadow: 0 6px 18px rgba(11,116,255,0.08);
+  --container: 1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg,#eef2ff 0%,var(--bg) 100%);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* layout */
+.container{max-width:var(--container);margin:0 auto;padding:0 18px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo-circle{
+  width:54px;height:54px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),#4bb8ff);
+  color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;
+  box-shadow:var(--shadow);
+}
+.brand-title{margin:0;font-size:18px}
+.brand-sub{margin:0;font-size:12px;color:var(--muted)}
+
+/* nav */
+.nav{display:flex;gap:12px}
+.nav-link{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600}
+.nav-link.active, .nav-link:hover{background:rgba(11,116,255,0.08);color:var(--accent)}
+
+/* hero */
+.hero{padding:80px 0; text-align:center;background:linear-gradient(180deg, rgba(11,116,255,0.08), transparent);}
+.hero-inner{max-width:880px;margin:0 auto}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.lead{color:var(--muted);font-size:18px;margin:12px 0 20px}
+.btn{display:inline-block;padding:10px 18px;background:var(--accent);color:var(--white);border-radius:10px;text-decoration:none;font-weight:700;box-shadow:var(--shadow)}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid rgba(11,116,255,0.08)}
+.btn.large{padding:14px 24px;font-size:16px}
+
+/* features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:40px 0}
+.feature{text-align:center;background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+.feature .icon{font-size:28px;margin-bottom:8px}
+
+/* highlight */
+.highlight{background:linear-gradient(90deg, #fff, #fff);padding:28px;margin:28px 0;border-radius:12px}
+.highlight-grid{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.cta-block{text-align:center}
+
+/* cards / grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cards .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+.card-visual{height:120px;border-radius:10px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800}
+.card-visual.beach{background:linear-gradient(135deg,#ff8a00,#ffb199)}
+.card-visual.mountain{background:linear-gradient(135deg,#4facfe,#00f2fe)}
+.card-visual.city{background:linear-gradient(135deg,#8e2de2,#4a00e0)}
+.card-visual.pack{background:linear-gradient(135deg,#ff7a00,#ffb199)}
+.card-visual.pack2{background:linear-gradient(135deg,#4facfe,#00f2fe)}
+.card-visual.pack3{background:linear-gradient(135deg,#ff6a88,#ffb199)}
+
+/* forms */
+.form-card{max-width:640px;margin:20px auto;background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+.form-card label{display:block;margin-bottom:12px;font-weight:600}
+.form-card input, .form-card textarea, .form-card select{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;margin-top:6px
+}
+.muted{color:var(--muted);margin-top:12px}
+
+/* testimonial */
+.testimonial{padding:30px;margin:30px 0;text-align:center}
+blockquote{font-style:italic;border-left:4px solid var(--accent);padding-left:16px;display:inline-block}
+
+/* footer */
+.site-footer{padding:18px 0;background:transparent}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
+
+/* responsive */
+@media (max-width:900px){
+  .features{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:12px}
+  .nav{flex-wrap:wrap}
+  .highlight-grid{flex-direction:column;align-items:flex-start}
+}

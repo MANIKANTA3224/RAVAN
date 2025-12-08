@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — ExploreWorld</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo-circle">EW</div>
+        <div>
+          <h1 class="brand-title">ExploreWorld</h1>
+          <p class="brand-sub">Travel Agency</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="booking.html" class="nav-link">Booking</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="page-title">Get in touch</h2>
+
+    <div class="form-card">
+      <form id="contactForm">
+        <label>
+          Name
+          <input name="name" type="text" required>
+        </label>
+
+        <label>
+          Email
+          <input name="email" type="email" required>
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+
+      <p id="contactMessage" class="muted"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year5"></span> ExploreWorld Travels</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+---
+- name: Deploy Travel Website to EC2
+  hosts: web
+  become: yes
+
+  vars:
+    web_root: /var/www/travel
+
+  tasks:
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+      notify: restart nginx
+
+    - name: Ensure web root exists
+      file:
+        path: "{{ web_root }}"
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+
+    - name: Remove old files in web root
+      file:
+        path: "{{ web_root }}"
+        state: absent
+
+    - name: Recreate clean web root folder
+      file:
+        path: "{{ web_root }}"
+        state: directory
+
+    - name: Copy Travel Website files to server
+      copy:
+        src: ../travel-app/
+        dest: "{{ web_root }}"
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+
+    - name: Create NGINX config for travel website
+      copy:
+        dest: /etc/nginx/sites-available/travel
+        content: |
+          server {
+              listen 80;
+              server_name _;
+
+              root {{ web_root }};
+              index index.html;
+
+              location / {
+                  try_files $uri $uri/ =404;
+              }
+          }
+
+    - name: Enable travel site
+      file:
+        src: /etc/nginx/sites-available/travel
+        dest: /etc/nginx/sites-enabled/travel
+        state: link
+        force: yes
+
+    - name: Remove default nginx site
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
