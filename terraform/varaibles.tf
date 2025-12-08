@@ -17,6 +17,6 @@ variable "key_name" {
 }
 
 variable "public_key" {
-  description = "Public key for EC2 SSH access"
+  description = "Public key content for EC2 key pair"
   type        = string
 }

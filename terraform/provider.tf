@@ -1,10 +1,6 @@
 ##########################################
-# provider.tf
+# provider.tf — AWS provider & backend
 ##########################################
-
-provider "aws" {
-  region = "ap-southeast-1"
-}
 
 terraform {
   required_providers {
@@ -15,9 +11,13 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "devops-tfstate-bucket-manikanta"
-    key    = "ec2-project/terraform.tfstate"
-    region = "ap-southeast-1"
+    bucket  = "devops-tfstate-bucket-manikanta"
+    key     = "ec2-project/terraform.tfstate"
+    region  = "ap-southeast-1"
     encrypt = true
   }
+}
+
+provider "aws" {
+  region = var.aws_region   # Use variable instead of hardcoded value
 }
