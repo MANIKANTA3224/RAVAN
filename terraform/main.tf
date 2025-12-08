@@ -2,9 +2,7 @@
 # main.tf — AWS Resources
 ##########################################
 
-provider "aws" {
-  region = var.aws_region
-}
+
 
 ##########################################
 # Security Group
