@@ -34,14 +34,14 @@ resource "aws_security_group" "web_sg" {
 
 # Key Pair
 resource "aws_key_pair" "main_key" {
-  key_name   = "devops-key"
-  public_key = file("${path.module}/id_rsa.pub")
+  key_name   = var.key_name
+  public_key = var.public_key   # ✅ Use variable instead of local file
 }
 
 # EC2 Instance
 resource "aws_instance" "web_server" {
   ami           = "ami-00d8fc944fb171e29"   # Ubuntu 22.04 ap-southeast-1
-  instance_type = "t2.micro"
+  instance_type = var.instance_type
   key_name      = aws_key_pair.main_key.key_name
 
   security_groups = [

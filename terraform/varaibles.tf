@@ -15,3 +15,9 @@ variable "key_name" {
   type        = string
   default     = "devops-key"
 }
+
+# ✅ Added because GitHub Actions passes `public_key`
+variable "public_key" {
+  description = "Public key for EC2 key pair"
+  type        = string
+}
